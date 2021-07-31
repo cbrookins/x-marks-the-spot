@@ -13,4 +13,4 @@ https://watchy.sqfmi.com
 Update ```Fh = true;``` in ***x-marks-the-spot.cpp***
 
 ## Preview
-![](https://github.com/theRealc2c2/x-marks-the-spot/blob/main/x.gif?raw=true "X marks the spot")
+![](https://github.com/theRealc2c2/x-marks-the-spot/raw/main/x.gif "X marks the spot")
