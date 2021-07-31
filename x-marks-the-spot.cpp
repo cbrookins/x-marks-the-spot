@@ -25,9 +25,14 @@ void X::drawTime(){
     String minutes;
     display.setFont(&UnscreenMK27pt7b);
     hour = currentTime.Hour;
+
     display.getTextBounds(hour, 0, 0, &x1, &y1, &w, &h);
     display.setCursor(8, 107);
-    display.print(hour);
+    if (currentTime.Hour < 10){
+      display.print("0" + hour);
+    } else {
+      display.print(hour);
+    }
     
     minutes = currentTime.Minute;
     display.getTextBounds(minutes, 0, 0, &x1, &y1, &w, &h);
@@ -106,9 +111,9 @@ void X::drawBattery(){
         display.print("xxx");
     }
     else if(BATTV > 3.85 && BATTV <= 4.10){
-        display.print(" xx");
+        display.print("  xx");
     }
     else if(BATTV > 3.60 && BATTV <= 3.85){
-        display.print("  x");
+        display.print("   x");
     }
 }
