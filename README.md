@@ -11,3 +11,6 @@ https://watchy.sqfmi.com
 ## Features
 ### Choose temperature in Fh or C
 Update ```Fh = true;``` in ***x-marks-the-spot.cpp***
+
+## Preview
+![](https://github.com/theRealc2c2/x-marks-the-spot/blob/main/x.gif?raw=true "X marks the spot")
