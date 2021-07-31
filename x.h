@@ -2,6 +2,9 @@
 #define X_H
 
 #include <Watchy.h>
+#include "fonts/UnscreenMK20pt7b.h"
+#include "fonts/UnscreenMK27pt7b.h"
+#include "fonts/UnscreenMK8pt7b.h"
 #include "x_img.h"
 
 class X : public Watchy{

@@ -5,7 +5,7 @@ X::X(){}
 void X::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
-    display.drawBitmap(45, 37, x, 110, 124, GxEPD_WHITE);
+    display.drawBitmap(45, 38, x, 110, 124, GxEPD_WHITE);
     drawTime();
     drawWDay();
     drawDate();
@@ -23,50 +23,45 @@ void X::drawTime(){
     uint16_t w, h;
     String hour;
     String minutes;
-    //display.setFont(&LcdSolid27pt7b);
-    display.setTextSize(5);
-    if(currentTime.Hour < 10){
-        display.print("0");
-    }
+    display.setFont(&UnscreenMK27pt7b);
     hour = currentTime.Hour;
     display.getTextBounds(hour, 0, 0, &x1, &y1, &w, &h);
-    display.setCursor(75, 100-h/2);
+    display.setCursor(8, 107);
     display.print(hour);
-    display.setCursor(128, 195);
-    if(currentTime.Minute < 10){
-        display.print("0");
-    }
+    
     minutes = currentTime.Minute;
     display.getTextBounds(minutes, 0, 0, &x1, &y1, &w, &h);
-    display.setCursor(175, 100-h/2);
-    display.print(minutes);
+    display.setCursor(125, 107);
+    if (currentTime.Minute < 10){
+      display.print("0" + minutes);
+    } else {
+      display.print(minutes);
+    }
 }
 
 void X::drawWDay(){
-    //display.setFont(&LcdSolid9pt7b);
-    display.setTextSize(2);
-    display.setCursor(159, 91);
-    String dayOfWeek = dayShortStr(currentTime.Wday);
+    display.setFont(&UnscreenMK8pt7b);
+    display.setCursor(8, 17);
+    String dayOfWeek = dayStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.print(String(dayOfWeek));
 }
 
 void X::drawDate(){
-    //display.setFont(&LcdSolid8pt7b);
-    display.setTextSize(2);
-    display.setCursor(4, 195);
+    display.setFont(&UnscreenMK8pt7b);
+    display.setCursor(8, 30);
     String monthStr = String(currentTime.Month);
     String dayStr = String(currentTime.Day);
     monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
     dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
-    String dateStr = dayStr + "." + monthStr;
+    String dateStr = monthStr + "." + dayStr;
     display.print(String(dateStr));
 }
 
 void X::drawSteps(){
-    //display.setFont(&LcdSolid8pt7b);
-    display.setTextSize(2);
-    display.setCursor(141, 106);
+    int16_t  x1, y1;
+    uint16_t w, h;
+    display.setFont(&UnscreenMK20pt7b);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
@@ -75,15 +70,16 @@ void X::drawSteps(){
     if(currentTime.Hour == 23 && currentTime.Minute == 59){
         sensor.resetStepCounter();
     }
+    display.getTextBounds(stepStr, 0, 0, &x1, &y1, &w, &h);
+    display.setCursor(100-w/2, 185);
     display.print(String(stepStr));
 }
 
 void X::drawTemperature(){
     bool Fh;
     Fh = true;
-    //display.setFont(&LcdSolid8pt7b);
-    display.setTextSize(2);
-    display.setCursor(4, 181);
+    display.setFont(&UnscreenMK8pt7b);
+    display.setCursor(155, 30);
     uint8_t temperatureRTC = RTC.temperature() / 4;
     if (Fh == true) {
       temperatureRTC = temperatureRTC * (9/5) + 32;
@@ -101,11 +97,10 @@ void X::drawTemperature(){
 
 void X::drawBattery(){
     display.setTextColor(GxEPD_WHITE);
-    //display.setFont(&LcdSolid9pt7b);
-    display.setTextSize(1.5);
+    display.setFont(&UnscreenMK8pt7b);
     display.setCursor(187, 17);
     display.print(">");
-    display.setCursor(165, 17);
+    display.setCursor(158, 17);
     float BATTV = getBatteryVoltage();
     if(BATTV > 4.10){
         display.print("xxx");
