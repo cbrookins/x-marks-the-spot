@@ -1,5 +1,5 @@
 # x-marks-the-spot
-#1 rated Watchy watch face in North America
+#1 rated Watchy watch face in North America  
 2x award winning
 
 ## Source modified from skully
