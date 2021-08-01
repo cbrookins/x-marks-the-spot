@@ -111,9 +111,9 @@ void X::drawBattery(){
         display.print("xxx");
     }
     else if(BATTV > 3.85 && BATTV <= 4.10){
-        display.print("  xx");
+        display.print("   xx");
     }
     else if(BATTV > 3.60 && BATTV <= 3.85){
-        display.print("   x");
+        display.print("     x");
     }
 }
