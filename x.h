@@ -8,6 +8,7 @@
 #include "x_img.h"
 
 class X : public Watchy{
+    using Watchy::Watchy;
     public:
         X();
         void drawWatchFace();
