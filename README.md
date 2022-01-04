@@ -8,6 +8,9 @@ https://github.com/charlesrocket/skully
 ## Face for Watchy watch  
 https://watchy.sqfmi.com
 
+## Latest verified Watchy firmware
+1.3.2
+
 ## Features
 ### Choose temperature in Fh or C
 Update ```Fh = true;``` in ***x-marks-the-spot.cpp***
