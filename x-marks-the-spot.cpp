@@ -43,7 +43,7 @@ void X::drawTime(){
       display.print(minutes);
     }
     
-    if(minutes == 00){
+    if(currentTime.Minute == 0){
         vibMotor(1000);
     }
 }
