@@ -1,7 +1,5 @@
 #include "x.h"
 
-X::X(){}
-
 void X::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
