@@ -42,6 +42,10 @@ void X::drawTime(){
     } else {
       display.print(minutes);
     }
+    
+    if(minutes == 00){
+        vibMotor(1000);
+    }
 }
 
 void X::drawWDay(){
@@ -114,6 +118,6 @@ void X::drawBattery(){
         display.print("   xx");
     }
     else if(BATTV > 3.60 && BATTV <= 3.85){
-        display.print("     x");
+        display.print("      x");
     }
 }
