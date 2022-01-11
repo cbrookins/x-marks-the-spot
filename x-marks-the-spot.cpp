@@ -41,8 +41,8 @@ void X::drawTime(){
       display.print(minutes);
     }
     
-    if(currentTime.Minute == 0){
-        vibMotor(1000);
+    if(hour < 22 && minutes == 0){
+        vibMotor(100,2);
     }
 }
 
