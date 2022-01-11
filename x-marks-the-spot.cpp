@@ -10,6 +10,11 @@ void X::drawWatchFace(){
     drawSteps();
     drawTemperature();
     drawBattery();
+
+    if(currentTime.Hour < 22 && currentTime.Hour > 7 && currentTime.Minute == 0){
+        vibMotor(100,2);
+    }
+
     for(uint8_t i=0; i<3; i++){
         // Reduce ghosting
         display.display(true);
@@ -41,9 +46,7 @@ void X::drawTime(){
       display.print(minutes);
     }
     
-    if(currentTime.Hour < 22 && currentTime.Minute == 0){
-        vibMotor(100,2);
-    }
+
 }
 
 void X::drawWDay(){
