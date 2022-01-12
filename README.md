@@ -13,7 +13,10 @@ https://watchy.sqfmi.com
 
 ## Features
 ### Choose temperature in Fh or C
-Update ```Fh = true;``` in ***x-marks-the-spot.cpp***
+Update ```TEMP_UNIT;``` in ***settings.h***
+
+### Choose time offset for NTP
+Update ```GMT_OFFSET_SEC``` in ***settings.h***
 
 ## Preview
 ![](https://github.com/theRealc2c2/x-marks-the-spot/raw/main/x.gif "X marks the spot")

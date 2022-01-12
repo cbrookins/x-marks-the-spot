@@ -86,19 +86,17 @@ void X::drawSteps(){
 }
 
 void X::drawTemperature(){
-    bool Fh;
-    Fh = true;
     display.setFont(&UnscreenMK8pt7b);
     display.setCursor(155, 30);
-    uint8_t temperatureRTC = RTC.temperature() / 4;
-    if (Fh == true) {
+    uint8_t temperatureRTC = temperatureRTC = RTC.temperature() / 4;
+    if (settings.weatherUnit == "imperial") {
       temperatureRTC = temperatureRTC * (9/5) + 32;
     }
     if(temperatureRTC < 10){
     display.print("0");
     }
     display.print(temperatureRTC);
-    if (Fh == true) {
+    if (settings.weatherUnit == "imperial") {
       display.print("Fh");
     } else {
       display.print("c");
