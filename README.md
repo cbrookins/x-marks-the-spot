@@ -13,7 +13,7 @@ https://watchy.sqfmi.com
 
 ## Features
 ### Choose temperature in Fh or C
-Update ```TEMP_UNIT;``` in ***settings.h***
+Update ```TEMP_UNIT``` in ***settings.h***
 
 ### Choose time offset for NTP
 Update ```GMT_OFFSET_SEC``` in ***settings.h***
