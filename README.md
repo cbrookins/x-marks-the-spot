@@ -9,7 +9,7 @@ https://github.com/charlesrocket/skully
 https://watchy.sqfmi.com
 
 ## Latest verified Watchy firmware
-1.3.2
+1.3.3
 
 ## Features
 ### Choose temperature in Fh or C

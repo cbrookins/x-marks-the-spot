@@ -1,7 +1,5 @@
 #include "x.h"
 
-X::X(){}
-
 void X::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
@@ -12,6 +10,11 @@ void X::drawWatchFace(){
     drawSteps();
     drawTemperature();
     drawBattery();
+
+    if(currentTime.Hour < 22 && currentTime.Hour > 7 && currentTime.Minute == 0){
+        vibMotor(100,2);
+    }
+
     for(uint8_t i=0; i<3; i++){
         // Reduce ghosting
         display.display(true);
@@ -42,6 +45,8 @@ void X::drawTime(){
     } else {
       display.print(minutes);
     }
+    
+
 }
 
 void X::drawWDay(){
@@ -114,6 +119,6 @@ void X::drawBattery(){
         display.print("   xx");
     }
     else if(BATTV > 3.60 && BATTV <= 3.85){
-        display.print("     x");
+        display.print("      x");
     }
 }
