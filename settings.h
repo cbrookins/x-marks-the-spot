@@ -11,18 +11,23 @@
 //NTP Settings
 #define NTP_SERVER "pool.ntp.org"
 #define GMT_OFFSET_SEC 3600 * -5 //New York is UTC -5
-#define DST_OFFSET_SEC 3600
 
 watchySettings settings{
-    CITY_ID,
-    OPENWEATHERMAP_APIKEY,
-    OPENWEATHERMAP_URL,
-    TEMP_UNIT,
-    TEMP_LANG,
-    WEATHER_UPDATE_INTERVAL,
-    NTP_SERVER,
-    GMT_OFFSET_SEC,
-    DST_OFFSET_SEC
+    #ifdef CITY_ID
+        .cityID = CITY_ID,
+    #else
+        .cityID = "",
+        .lat = LAT,
+        .lon = LON,
+    #endif
+    .weatherAPIKey = OPENWEATHERMAP_APIKEY,
+    .weatherURL = OPENWEATHERMAP_URL,
+    .weatherUnit = TEMP_UNIT,
+    .weatherLang = TEMP_LANG,
+    .weatherUpdateInterval = WEATHER_UPDATE_INTERVAL,
+    .ntpServer = NTP_SERVER,
+    .gmtOffset = GMT_OFFSET_SEC,
+    .vibrateOClock = true,
 };
 
 #endif
