@@ -9,15 +9,7 @@ https://github.com/charlesrocket/skully
 https://watchy.sqfmi.com
 
 ## Latest verified Watchy firmware
-1.4.0
-
-## Notes
-Until the Arduino board library >2.0.2 gets a fix for the Watchy boot loop, you have to use version 2.0.2 and set your board version in the ***config.h*** file of the Watchy library.
-
-### Options are
-ARDUINO_WATCHY_V10 //version 1.0  
-ARDUINO_WATCHY_V15 //version 1.5  
-ARDUIONO_WATCHY_V20 //version 2.0  
+1.4.14 on a Watchy v1
 
 ## Features
 ### Choose temperature in Fh or C
